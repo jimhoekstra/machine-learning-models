@@ -48,8 +48,10 @@ class DigitRecognizer:
     def print_test_accuracy(self, x_test: np.ndarray, y_test: np.ndarray) -> None:
         pass
 
-    def predict(self):
-        pass
+    def predict(self, x) -> list[float]:
+        prediction: np.ndarray = self.model.predict(x)
+        prediction_as_list: list[float] = prediction.flatten().tolist()
+        return prediction_as_list
 
     def save(self) -> None:
         print('saved model at:', MODEL_PATH)
